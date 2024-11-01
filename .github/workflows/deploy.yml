@@ -31,14 +31,14 @@ jobs:
         run: npm run build --if-present
 
       - name: Run tests
-        run: npm test  # Ensure you have a "test" script in package.json
+        run: npm test  # Ensure your package.json has a "test" script
 
       - name: Deploy to Ubuntu Server
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SERVER_USER: 'ubuntu'                        # Your SSH user
-          SERVER_IP: '18.141.245.172'                    # Replace with your server IP
+          SERVER_IP: '18.141.245.172'                  # Your server IP
           DEPLOY_DIR: '/var/www/travel_web/dist'       # Deployment directory on the server
         run: |
           # Set up SSH key and permissions
@@ -46,7 +46,7 @@ jobs:
           chmod 600 private_key.pem
 
           # Clean up previous deployment on the server
-          ssh -i private_key.pem -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "sudo -u www-data rm -rf $DEPLOY_DIR/*"
+          ssh -i private_key.pem -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "sudo rm -rf $DEPLOY_DIR/*"
 
           # Deploy files to the server
           scp -i private_key.pem -o StrictHostKeyChecking=no -r dist/* $SERVER_USER@$SERVER_IP:$DEPLOY_DIR

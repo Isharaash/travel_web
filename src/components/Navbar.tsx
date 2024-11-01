@@ -34,7 +34,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
-            <a href="#destinations" className="text-gray-900 hover:text-emerald-600 block px-3 py-2 rounded-md text-base font-medium">Destinations</a>
+            <a href="#destinations" className="text-gray-900 hover:text-emerald-600 block px-3 py-2 rounded-md text-base font-medium">destinations</a>
             <a href="#experiences" className="text-gray-900 hover:text-emerald-600 block px-3 py-2 rounded-md text-base font-medium">Experiences</a>
             <a href="#gallery" className="text-gray-900 hover:text-emerald-600 block px-3 py-2 rounded-md text-base font-medium">Gallery</a>
             <a href="#contact" className="text-gray-900 hover:text-emerald-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>

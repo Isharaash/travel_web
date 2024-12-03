@@ -38,8 +38,8 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SERVER_USER: 'ubuntu'                        # Your SSH user
-          SERVER_IP: '18.141.245.172'                  # Your server IP
-          DEPLOY_DIR: '/var/www/travel_web/dist'       # Deployment directory on the server
+          SERVER_IP: '52.74.218.45'                  # Your server IP
+          DEPLOY_DIR: '/var/www/travel_web/build'       # Deployment directory on the server
         run: |
           # Set up SSH key and permissions
           echo "$SSH_PRIVATE_KEY" > private_key.pem
